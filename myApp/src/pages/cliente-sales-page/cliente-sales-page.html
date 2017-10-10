@@ -1,0 +1,209 @@
+<!--
+  Generated template for the ClienteSalesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-title>Clientes</ion-title>
+  </ion-navbar>
+   <ion-toolbar>
+    
+
+    <ion-segment [(ngModel)]="seleccionado" color="secondary">
+      <ion-segment-button value="buscar" >
+        <ion-icon name="search"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="agregar" (ionSelect)="cambiarModo()">
+        <ion-icon name="add"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+<div [ngSwitch]="seleccionado">
+
+ 
+<ion-list *ngSwitchCase="'buscar'">
+
+ 
+  <ion-item-sliding  *ngFor="let item of lista">
+
+  <ion-item>
+      <ion-icon name="person" item-left></ion-icon>
+      <p> {{ item.nombre }} {{ item.apellido }} </p>
+     
+      <button ion-button clear item-right (click)="onClick(item)">Ver</button>
+  </ion-item>
+    <ion-item-options side="left">
+      
+        <button ion-button color="primary" (click)="call(item)" >
+          <ion-icon name="call" ></ion-icon>
+            Llamar
+        </button>
+
+    </ion-item-options>
+    <ion-item-options side="right">
+        <button ion-button color="midnight-blue" (click)="email(item)" >
+          <ion-icon name="mail"></ion-icon>
+            Email
+        </button>
+    </ion-item-options>
+
+
+    </ion-item-sliding>
+    
+
+
+
+</ion-list>
+
+<ion-list *ngSwitchCase="'agregar'">
+
+  <ion-card class="card-background-page">
+      <ion-card-header> 
+        <div class="card-title">Clientes</div>
+        <div class="card-subtitle">Agregar un nuevo Cliente</div>  
+      </ion-card-header>
+      
+      <ion-card-content>
+        <form  [formGroup]="myForm" (ngSubmit)="saveData()">
+       
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+           
+            <ion-input  formControlName="nombre" type="text"  clearInput="true" placeholder="Nombre" ></ion-input>
+      </ion-item> 
+      <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+           
+            <ion-input formControlName="apellido" type="text"  clearInput="true" placeholder="Apellidos"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+       
+        <ion-input formControlName="empresa" type="text"  clearInput="true" placeholder="Empresa"></ion-input>
+  </ion-item>
+      <ion-item>
+            <ion-icon name="mail" item-left></ion-icon>
+         
+            <ion-input formControlName="email" type="email" clearInput="true" placeholder="Correo"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            
+            <ion-input type="tel" formControlName="dni" clearInput="true" placeholder="Dni"></ion-input>
+      </ion-item>
+
+       <ion-item>
+            <ion-icon name="eye" item-left></ion-icon>
+          
+            <ion-input formControlName="contra" type="password" clearInput="true" placeholder="Contraseña"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="call" item-left></ion-icon>
+         
+          <ion-input formControlName="celular" type="tel" clearInput="true" placeholder="Celular"></ion-input>
+      </ion-item>
+
+        <ion-row radio-group formControlName="genero">
+         
+            <ion-item>
+              <ion-icon name="woman" item-left></ion-icon>
+              <ion-label>Mujer</ion-label>
+              <ion-radio value="2"></ion-radio>
+            </ion-item>
+          
+       
+         <ion-item>
+          <ion-icon name="man" item-left></ion-icon>
+          <ion-label>Hombre</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-row> 
+
+
+       
+      
+      <div padding>
+      <button ion-button block icon-left type="submit" [disabled]="!myForm.valid" >
+        <ion-icon name="send">
+          </ion-icon>AGREGAR
+      </button>
+    </div>
+
+      </form>
+      </ion-card-content>
+      
+    </ion-card>
+
+</ion-list>
+
+
+
+ 
+</div>
+ 
+</ion-content>
+
+
+
+<ion-footer *ngIf="seleccionado=='buscar'">
+
+<ion-item *ngIf="seleccionado=='buscar'">
+    <ion-label>Filtro</ion-label>
+      <ion-select [(ngModel)]="filtro" (ionChange)="establecerCambio($event)" cancelText="Nah" okText="Okay!"  >
+        <ion-option value="dni"  >DNI</ion-option>
+        <ion-option value="nombre">NAME</ion-option>
+        <ion-option value="hoy">NOW</ion-option>
+        <ion-option value="ayer">YESTERDAY</ion-option>
+        <ion-option value="semana">WEEK</ion-option>
+        <ion-option value="semana_anterior">LAST WEEK</ion-option>
+        <ion-option value="intervalo">INTERVAL</ion-option>
+      </ion-select>
+  </ion-item>
+
+  <ion-toolbar color="primary">
+    
+    <ion-buttons>
+      <button full ion-button icon-left (click)="buscarCliente()">
+        <ion-icon name="search"></ion-icon>Buscar Cliente
+        
+      </button>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+
+<ion-footer *ngIf="seleccionado=='agregar'" >
+  <ion-item *ngIf="seleccionado=='agregar'">
+    <ion-label>Filtro</ion-label>
+      <ion-select>
+          <ion-option>DNI</ion-option>
+          <ion-option>NOMBRE</ion-option>
+          <ion-option>HOY</ion-option>
+          <ion-option>AYER</ion-option>
+          <ion-option>SEMANA</ion-option>
+          <ion-option>INTERVALO</ion-option>
+      </ion-select>
+  </ion-item>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+        <button>
+          <ion-icon></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+
+</ion-footer>
+
+

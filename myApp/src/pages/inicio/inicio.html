@@ -1,0 +1,94 @@
+<!--
+  Generated template for the Inicio page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+ <ion-navbar color="primary">
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  
+    <ion-title>Inicio</ion-title>
+  <ion-buttons end>
+
+     <button ion-button  icon-only  icon-only (click)="gotoHeart()" >
+            <ion-icon name="heart" ></ion-icon>
+              <div *ngIf="longdeseo>0"> 
+                <ion-badge id="noti-badge" color="danger">
+                  {{longdeseo}}
+                </ion-badge>
+              </div>
+        </button>
+
+        <button ion-button id="notification-button" icon-only (click)="gotoCart()" >
+            <ion-icon name="cart"></ion-icon>
+            <div *ngIf="longcart>0"> 
+              <ion-badge id="notifications-badge" color="danger">
+                {{longcart}}
+                
+                </ion-badge>
+                </div>
+        </button>
+        
+        <button ion-button icon-only>
+            <ion-icon name="settings"></ion-icon>
+        </button>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+   
+<button ion-button block (click)='gotoAcerca()' >Acerca de PayApp</button>
+<ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="iconsgrid"><img (click)='gotoCatalog()' src="assets/images/newspaper.png">
+        <h6>Catalogo</h6></div>
+      </ion-col>
+      <ion-col>
+       <div class="iconsgrid"><img (click)='gotoOferts()' src="assets/images/heart3.png">
+        <h6>Deseos</h6></div>
+      </ion-col>
+      <ion-col> 
+        <div class="iconsgrid"><img (click)='gotoDeuda()' src="assets/images/credit-card.png">
+        <h6>Deudas</h6></div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      
+      <ion-col>
+        <div class="iconsgrid"><img onclick="window.open('http://www.google.com.pe','_system','location=yes')" src="assets/images/browser.png">
+        <h6>WebSite</h6></div>
+      </ion-col>
+      <ion-col>
+        <div class="iconsgrid"><img (click)="gotoChat()" src="assets/images/chat.png">
+        <h6>Chat</h6></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+     
+
+ <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab onclick="window.open('http://www.google.com.pe','_system','location=yes')"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab onclick="window.open('http://www.google.com.pe','_system','location=yes')"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab onclick="window.open('http://www.google.com.pe','_system','location=yes')"><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab onclick="window.open('http://www.google.com.pe','_system','location=yes')"><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+<ion-grid>
+       <ion-row class="social">
+         <button ion-button  block icon-left color="danger">Contáctanos
+           </button>
+         
+       </ion-row>
+     </ion-grid>
+</ion-content>

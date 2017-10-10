@@ -1,0 +1,31 @@
+<!--
+  Generated template for the OfertaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Ofertas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ Oferta de Productos
+  <ion-list>
+    <ion-item *ngFor="let item of lista">
+      <ion-thumbnail item-left>
+         <img src="http://{{cadena}}:8000/images/{{item.imagen}}" alt="">
+
+      </ion-thumbnail>
+      <h2>{{ item.nombre }}</h2>
+      <p>Precio: {{ item.precio }}</p>
+      <p>Descuento: {{ item.oferta }}</p>
+      <button ion-button clear item-right (click)="onClick(item)">Ver</button>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

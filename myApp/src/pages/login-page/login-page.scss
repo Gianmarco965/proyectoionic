@@ -1,0 +1,38 @@
+page-login-page {
+   
+.scroll-content{
+  
+    background: url(../assets/images/sueloagricola.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    filter:brightness(1.10);
+}
+
+    .imgsociedad
+    {
+        text-align: center;
+        margin: 120px 0 0 0;
+        
+    }
+    .logosociedad
+    {
+        height: 161px;
+        width: 180px;
+    }
+
+    .boton_registro
+    {
+        text-align: center;
+
+    }
+
+.card-background-page
+{
+
+     color: map-get($colors, primary);
+}
+
+
+
+}

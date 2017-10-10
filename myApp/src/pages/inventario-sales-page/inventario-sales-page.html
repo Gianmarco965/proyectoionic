@@ -1,0 +1,146 @@
+<!--
+  Generated template for the InventarioSalesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<ion-navbar color="primary">
+    <ion-title>Categorias</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only id="notification-button" (click)="gotoAdd()" >
+            <ion-icon name="add"></ion-icon>
+            <div *ngIf="longcart>0"> 
+              <ion-badge id="notifications-badge" color="danger">{{longcart}}</ion-badge>
+            </div>
+        </button>
+        
+  </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+    
+
+    <ion-segment [(ngModel)]="seleccionado" color="secondary">
+      <ion-segment-button value="products" (ionSelect)="leerCategoria()">
+        Productos
+      </ion-segment-button>
+      <ion-segment-button value="offers" (ionSelect)="leerInventario()">
+        Ofertas
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+  <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div [ngSwitch]="seleccionado">
+
+    <ion-list *ngSwitchCase="'products'">
+      Lista de Categorias
+      <ion-item-sliding *ngFor="let item of lista">
+        <ion-item text-wrap>
+          <ion-thumbnail item-left>
+            <img src="http://{{cadena}}:8000/images/{{item.imagen}}" alt="">
+
+          </ion-thumbnail>
+          <h6>{{ item.nombre }}</h6>
+         
+          <p>Nº Alerta {{ item.totalcero }}</p>
+          <p>Nº Medio {{ item.totalmedio }}</p>
+          <p>T.Productos:{{ item.totalgeneral }}</p>
+
+
+          <button ion-button clear item-right (click)="onClick(item)">Ver</button>
+
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button (click)="archive(item)">
+    <ion-icon name="archive" ></ion-icon>
+    Ficha Técnica
+  </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'offers'">
+      Oferta de Productos
+      <ion-item-sliding *ngFor="let item of listainventario">
+
+
+        <ion-item *ngIf="evaluarStock(item)==0"  color="danger" text-wrap>
+          <ion-thumbnail item-left>
+            <img src="http://{{cadena}}:8000/images/{{item.imagen}}" alt="">
+
+          </ion-thumbnail>
+          <h6>{{ item.nombre }}</h6>
+
+          <p>Precio: {{ item.precio }}</p>
+          <p>Descuento: {{ item.oferta }}</p>
+          <p>Stock: {{  item.stock }}</p>
+          <button ion-button clear item-right color="light" (click)="onClickOferta(item)">Ver</button>
+
+        </ion-item>
+
+        <ion-item *ngIf="evaluarStock(item)==1"  color="amarillo-patito" text-wrap>
+            <ion-thumbnail item-left>
+              <img src="http://{{cadena}}:8000/images/{{item.imagen}}" alt="">
+  
+            </ion-thumbnail>
+            <h6>{{ item.nombre }}</h6>
+  
+            <p>Precio: {{ item.precio }}</p>
+            <p>Descuento: {{ item.oferta }}</p>
+            <p>Stock: {{  item.stock }}</p>
+            <button ion-button clear item-right color="light" (click)="onClickOferta(item)">Ver</button>
+  
+          </ion-item>
+
+          <ion-item *ngIf="evaluarStock(item)==2" text-wrap>
+              <ion-thumbnail item-left>
+                <img src="http://{{cadena}}:8000/images/{{item.imagen}}" alt="">
+    
+              </ion-thumbnail>
+              <h6>{{ item.nombre }}</h6>
+    
+              <p>Precio: {{ item.precio }}</p>
+              <p>Descuento: {{ item.oferta }}</p>
+              <p>Stock: {{  item.stock }}</p>
+              <button ion-button clear item-right (click)="onClickOferta(item)">Ver</button>
+    
+            </ion-item>
+
+
+
+        <ion-item-options side="left">
+
+          <button ion-button (click)="archive(item)">
+    
+<ion-icon name="archive" >
+</ion-icon>
+    Ficha Técnica
+  </button>
+
+        </ion-item-options>
+
+        <ion-item-options side="right">
+           <form [formGroup]="form"  (ngSubmit)="heart(item)" >
+              <button type="submit" ion-button  color="danger">       
+              <ion-icon name="heart" ></ion-icon>       
+              Deseo   
+              </button>
+            </form>
+            <button ion-button (click)="share(item)" color="midnight-blue">
+            
+           <ion-icon name="share">
+          </ion-icon>     
+          Share
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>

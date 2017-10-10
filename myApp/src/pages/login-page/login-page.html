@@ -1,0 +1,126 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content scroll="true">
+  
+  <ion-slides pager paginationType="progress"  direction="vertical" spaceBetween="80" effect="coverflow">
+     <ion-slide>
+      
+
+  <div class="imgsociedad">
+    <img class="logosociedad" src="assets/images/logosociedad.png" alt="">
+  </div>
+
+  
+       
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            <ion-label stacked >Usuario</ion-label>
+            <ion-input type="text" placeholder="Usuario" clearInput="true" [(ngModel)]="usuario" ></ion-input>
+          </ion-item> 
+         <ion-item>
+           <ion-icon name="eye" item-left></ion-icon>
+            <ion-label stacked>Password</ion-label>
+            <ion-input type="password" placeholder="Password"  clearInput="true" [(ngModel)]="pass"></ion-input>
+          </ion-item>
+
+   
+      <button block full icon-left ion-button (click)="Signup()">
+        <ion-icon name="send"></ion-icon>LOGIN
+      </button>
+  
+  </ion-slide>
+  
+  <ion-slide>
+    <ion-card class="card-background-page">
+      <ion-card-header> 
+        <div class="card-title">SignUp</div>
+        <div class="card-subtitle">Crea una nueva cuenta</div>  
+      </ion-card-header>
+      
+      <ion-card-content>
+        <form  [formGroup]="myForm" (ngSubmit)="saveData()">
+       
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+           
+            <ion-input  formControlName="nombre" type="text"  clearInput="true" placeholder="Nombre" ></ion-input>
+      </ion-item> 
+      <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+           
+            <ion-input formControlName="apellido" type="text"  clearInput="true" placeholder="Apellidos"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+       
+        <ion-input formControlName="empresa" type="text"  clearInput="true" placeholder="Empresa"></ion-input>
+      </ion-item>
+
+      <ion-item>
+            <ion-icon name="mail" item-left></ion-icon>
+         
+            <ion-input formControlName="email" type="email" clearInput="true" placeholder="Correo"></ion-input>
+      </ion-item>
+      <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            
+            <ion-input type="tel" formControlName="dni" clearInput="true" placeholder="Dni"></ion-input>
+      </ion-item>
+
+       <ion-item>
+            <ion-icon name="eye" item-left></ion-icon>
+          
+            <ion-input formControlName="contra" type="password" clearInput="true" placeholder="Contraseña"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="call" item-left></ion-icon>
+         
+          <ion-input formControlName="celular" type="tel" clearInput="true" placeholder="Celular"></ion-input>
+      </ion-item>
+
+        <ion-row radio-group formControlName="genero">
+         
+            <ion-item>
+              <ion-icon name="woman" item-left></ion-icon>
+              <ion-label>Mujer</ion-label>
+              <ion-radio value="2"></ion-radio>
+            </ion-item>
+          
+       
+         <ion-item>
+          <ion-icon name="man" item-left></ion-icon>
+          <ion-label>Hombre</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-row> 
+
+
+       
+      
+      <div padding>
+      <button ion-button block icon-left type="submit" [disabled]="!myForm.valid" >
+        <ion-icon name="send">
+          </ion-icon>REGISTRARSE
+      </button>
+    </div>
+
+      </form>
+      </ion-card-content>
+      
+    </ion-card>
+      
+
+
+  </ion-slide>
+
+      </ion-slides>
+      
+</ion-content>

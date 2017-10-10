@@ -1,0 +1,76 @@
+<!--
+  Generated template for the CatalogoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Productos</ion-title>
+    <ion-buttons end>
+
+        <button ion-button  icon-only  icon-only (click)="gotoHeart()" >
+            <ion-icon name="heart" ></ion-icon>
+              <div *ngIf="longdeseo>0"> 
+                <ion-badge id="noti-badge" color="danger">
+                  {{longdeseo}}
+                </ion-badge>
+              </div>
+        </button>
+
+        <button ion-button icon-only id="notification-button" (click)="gotoCart()" >
+            <ion-icon name="cart"></ion-icon>
+            <div *ngIf="longcart>0"> 
+                  <ion-badge id="notifications-badge" color="danger">{{longcart}}</ion-badge>
+            </div>
+        </button>
+        
+  </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  Lista de Productos
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of lista">
+    <ion-item  text-wrap>
+      <ion-thumbnail item-left>
+         <img src="http://{{cadena}}:8000/images/{{item.imagen}}" alt="">
+
+      </ion-thumbnail>
+      <h6>Nombre {{ item.nombre }}</h6>
+      <p>Precio: {{ item.precio }}</p>
+      <button ion-button clear item-right (click)="onClick(item)">Ver</button>
+
+
+    </ion-item>
+
+<ion-item-options side="left" >
+      <button ion-button (click)="archive(item)">
+    <ion-icon name="archive" ></ion-icon>
+    Ficha Técnica
+  </button>
+    </ion-item-options>
+
+  <ion-item-options side="right" >
+       <form [formGroup]="form"  (ngSubmit)="heart(item)" >
+        <button type="submit" ion-button color="danger">
+            <ion-icon name="heart" ></ion-icon>
+          Deseo
+        </button>
+      </form>
+    <button ion-button (click)="share(item)" color="midnight-blue">
+      <ion-icon name="share"></ion-icon>
+        Share
+    </button>
+      </ion-item-options>
+
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

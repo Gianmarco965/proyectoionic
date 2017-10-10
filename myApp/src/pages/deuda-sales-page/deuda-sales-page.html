@@ -1,0 +1,92 @@
+<!--
+  Generated template for the DeudaSalesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Deudas</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    
+
+    <ion-segment [(ngModel)]="seleccionado" color="secondary">
+      <ion-segment-button value="buscar" >
+        <ion-icon name="search"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="agregar" (ionSelect)="cambiarModo()">
+        <ion-icon name="add"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+<div [ngSwitch]="seleccionado">
+
+    <ion-list *ngSwitchCase="'buscar'" >
+      <ion-item *ngFor="let item of listadeudahoy "  >
+        
+        <ion-icon item-left name="mail" color="tech"></ion-icon>
+        <div [ngSwitch]="campo">
+          <div *ngSwitchCase="'fechasistema'">
+          <p>Nº: {{ item.iddeuda }}</p>
+          <p>{{ item.nombre }} {{ item.apellido }}</p>
+          <p>{{ item.fecha | date:'dd.MM.yyyy HH:mm' }}</p>
+          <p>Cuotas: {{ item.cantcuota }}</p>
+           
+          </div>
+          <div *ngSwitchCase="'u.usuario'">
+            <p>Nº Doc.: {{ item.usuario }}</p>
+            <p>Cliente: {{ item.nombre }} {{ item.apellido }}</p>
+            <p>Nº de Pedidos: {{ item.pedido }}</p>
+             
+          </div>
+          <div *ngSwitchCase="'c.nombre'"> 
+              <p>Nº Doc.: {{ item.usuario }}</p>
+              <p>Cliente: {{ item.nombre }} {{ item.apellido }}</p>
+              <p>Nº de Pedidos: {{ item.pedido }}</p>
+
+          </div>
+
+        </div>
+       <button ion-button clear item-right (click)="onClick(item,campo)" >Ver</button>
+
+      </ion-item>
+    
+
+<ion-footer>
+  <ion-item *ngIf="seleccionado=='buscar'">
+    <ion-label>Filtro</ion-label>
+      <ion-select [(ngModel)]="filtro" (ionChange)="establecerCambio($event)"  cancelText="Nah" okText="Okay!"  >
+        <ion-option value="dni"  >DNI</ion-option>
+        <ion-option value="nombre">NAME</ion-option>
+        <ion-option value="hoy">NOW</ion-option>
+        <ion-option value="ayer">YESTERDAY</ion-option>
+        <ion-option value="semana">WEEK</ion-option>
+        <ion-option value="semana_anterior">LAST WEEK</ion-option>
+        <ion-option value="intervalo">INTERVAL</ion-option>
+      </ion-select>
+  </ion-item>
+  
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <button ion-button icon-left (click)="buscarFiltro()">
+        <ion-icon name="search"></ion-icon>Buscar Deudas
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+  </ion-list>
+<ion-list *ngSwitchCase="'agregar'">
+</ion-list>
+
+</div>
+
+  
+</ion-content>

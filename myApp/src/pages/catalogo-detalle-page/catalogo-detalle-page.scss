@@ -1,0 +1,28 @@
+page-catalogo-detalle-page {
+#notification-button {            
+            position: relative;
+            width: 42px;
+            top:1px;
+            right: 1px;
+            overflow: visible!important;
+        }
+
+
+   #notifications-badge {
+            background-color: red;
+            position: absolute;
+             top: -6px;
+            right: -12px;
+            border-radius: 100%;
+        }
+
+        #noti-badge{
+          background-color: red;
+            position: absolute;
+            top: -6px;
+            right: -12px;
+            border-radius: 100%;
+
+        }
+
+}

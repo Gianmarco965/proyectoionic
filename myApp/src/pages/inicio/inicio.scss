@@ -1,0 +1,45 @@
+page-inicio {
+  
+  h6
+  {
+    text-align: center;
+  }
+  .col > div > img
+  {
+    cursor:pointer;
+    height: 76px;
+    width: 76px;
+  } 
+  .iconsgrid
+    {
+        text-align: center;    
+    }
+    .grid
+    {
+      margin-top: 35px;
+    }
+#notification-button {            
+            position: relative;
+            width: 42px;
+            top:1px;
+            right: 1px;
+            overflow: visible!important;
+        }
+
+
+   #notifications-badge {
+            background-color: red;
+            position: absolute;
+            top: -6px;
+            right: -12px;
+            border-radius: 100%;
+        }
+        #noti-badge{
+          background-color: red;
+            position: absolute;
+            top: -6px;
+            right: -12px;
+            border-radius: 100%;
+
+        }
+}

@@ -1,0 +1,39 @@
+<!--
+  Generated template for the EstadisticaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Estadisticas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-card>
+    <ion-card-header>
+      Total de Pedidos por Mes
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas id="barcanvas"></canvas>
+    </ion-card-content>
+  </ion-card>
+          <canvas #doughnutCanvas></canvas>
+     
+    
+          <ion-card>
+            <ion-card-header>
+              Estadistica de Stock Faltante
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #lineCanvas></canvas>
+            </ion-card-content>
+          </ion-card>
+
+          <button ion-button full (click)="download()">DESCARGAR PDF</button>
+</ion-content>

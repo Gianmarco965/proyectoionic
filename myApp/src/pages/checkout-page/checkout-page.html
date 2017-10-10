@@ -1,0 +1,110 @@
+<!--
+  Generated template for the CheckoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-title>Checkout</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form [formGroup]="myForm" (ngSubmit)="saveData()">
+
+    <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <ion-label stacked>Nombres</ion-label>
+        <ion-input type="text" formControlName="nombre" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <ion-label stacked>Apellidos</ion-label>
+        <ion-input type="text" formControlName="apellido" ></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Seleccione el Departamento</ion-label>
+      <ion-select formControlName="departamento" multiple="false" (ionChange)="onSelectChange($event)" >
+
+        <ion-option  *ngFor="let departamento of listadepartamento" [value]="departamento.id_ubigeo"  (ionSelect)="itemDepartamento(departamento)">{{ departamento.nombre_ubigeo }}</ion-option>
+        
+      </ion-select>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Seleccione la Provincia</ion-label>
+      <ion-select formControlName="provincia" multiple="false" (ionChange)="onSelectChangeProvincia($event)" >
+        <ion-option *ngFor="let provincia of listaprovincias" [value]="provincia.id_ubigeo"  (ionSelect)="itemProvincia(provincia)" >{{ provincia.nombre_ubigeo }}</ion-option>
+        
+      </ion-select>
+  </ion-item> 
+
+  <ion-item>
+      <ion-label>Seleccione el Distrito</ion-label>
+      <ion-select  formControlName="distrito"  multiple="false" (ionChange)="onSelectChangeDistrito($event)" >
+        <ion-option *ngFor="let distrito of listadistritos" [value]="distrito.id_ubigeo"  (ionSelect)="itemDistrito(distrito)">{{ distrito.nombre_ubigeo }}</ion-option>
+    
+      </ion-select>
+  </ion-item>
+  
+
+
+
+    <ion-item>
+        <ion-icon name="home" item-left></ion-icon>
+        <ion-label stacked>Direccion de Envio</ion-label>
+        <ion-input type="text" formControlName="direccion" ></ion-input>
+    </ion-item>
+
+
+
+
+    <ion-item>
+      <ion-icon name="call" item-left></ion-icon>
+      <ion-label stacked>Telefono/Celular</ion-label>
+      <ion-input type="tel" formControlName="telefono" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="mail" item-left></ion-icon>
+        <ion-label stacked>Correo Electrónico</ion-label>
+        <ion-input type="email" formControlName="correo" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="document" item-left ></ion-icon>
+        <ion-label stacked>Dni/Ruc</ion-label>
+        <ion-input type="text" formControlName="documento" ></ion-input>
+    </ion-item>
+    <ion-item>
+          <ion-label>Cuotas</ion-label>
+          <ion-select [(ngModel)]="filtro" (ionChange)="establecerCambio($event)" cancelText="Nah" okText="Okay!" formControlName="cantcuota" >
+            <ion-option value="1">1 mes - 30dias</ion-option>
+            <ion-option value="2">2 meses - 60dias</ion-option>
+            <ion-option value="3">3 meses - 90dias</ion-option>
+            <ion-option value="4">4 meses - 120dias</ion-option>
+            <ion-option value="5">5 meses - 150dias</ion-option>
+            <ion-option value="6">6meses - 180dias</ion-option>
+          </ion-select>
+        
+    </ion-item>
+    <ion-item>
+        <ion-label>Monto en cuotas {{cantcuota}}</ion-label>
+    </ion-item>
+        <div padding>
+      <button ion-button block icon-left type="submit" [disabled]="!myForm.valid" >
+        <ion-icon name="send">
+          </ion-icon>CONFIRMAR COMPRA
+      </button>
+    </div>
+</form>
+
+</ion-content>
