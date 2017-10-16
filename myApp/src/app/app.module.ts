@@ -52,11 +52,14 @@ import { EstadisticaPage } from '../pages/estadistica/estadistica';
 import { DepartamentoService } from '../services/departamento.service';
 import { ProvinciaService } from '../services/provincia.service';
 import { DistritoService } from '../services/distrito.service';
+import { EstadisticaMesPage } from '../pages/estadistica-mes/estadistica-mes';
+import { EstadisticaStockPage } from '../pages/estadistica-stock/estadistica-stock';
+import { EstadisticaStockRoundPage } from '../pages/estadistica-stock-round/estadistica-stock-round';
 
 @NgModule({
   declarations: [
     MyApp,
-    Inicio,Contacto,Acerca,DeudaPage,EstadisticaPage,DeudaSalesPage,DetalleDeudaSalesPage,DetalleClienteSalesPage,ClienteSalesPage,AgregarCategoriaSalesPage,CatalogoSalesPage,CartPage,LoginPage,InventarioSalesPage,CheckoutPage,WishPage,InicioSalesPage,CatalogoPage,DetalleDeudaPage,CatalogoDetallePage,OfertaPage,CategoriaPage
+    Inicio,Contacto,Acerca,EstadisticaMesPage,EstadisticaStockRoundPage,EstadisticaStockPage,DeudaPage,EstadisticaPage,DeudaSalesPage,DetalleDeudaSalesPage,DetalleClienteSalesPage,ClienteSalesPage,AgregarCategoriaSalesPage,CatalogoSalesPage,CartPage,LoginPage,InventarioSalesPage,CheckoutPage,WishPage,InicioSalesPage,CatalogoPage,DetalleDeudaPage,CatalogoDetallePage,OfertaPage,CategoriaPage
   ],
   imports: [
     BrowserModule,HttpModule,
@@ -69,7 +72,7 @@ import { DistritoService } from '../services/distrito.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Inicio,Contacto,Acerca,DeudaPage,EstadisticaPage,DeudaSalesPage,DetalleDeudaSalesPage,DetalleClienteSalesPage,ClienteSalesPage,DetalleDeudaPage,AgregarCategoriaSalesPage,CatalogoSalesPage,WishPage,InventarioSalesPage,InicioSalesPage,CheckoutPage,CartPage,LoginPage,CatalogoPage,CatalogoDetallePage,OfertaPage,CategoriaPage
+    Inicio,Contacto,Acerca,DeudaPage,EstadisticaMesPage,EstadisticaStockRoundPage,EstadisticaStockPage,EstadisticaPage,DeudaSalesPage,DetalleDeudaSalesPage,DetalleClienteSalesPage,ClienteSalesPage,DetalleDeudaPage,AgregarCategoriaSalesPage,CatalogoSalesPage,WishPage,InventarioSalesPage,InicioSalesPage,CheckoutPage,CartPage,LoginPage,CatalogoPage,CatalogoDetallePage,OfertaPage,CategoriaPage
   ],
   providers: [AuthService,File,DepartamentoService,ProvinciaService,DistritoService,FilePath,DetalleCuotaService,Utilitarios,FileTransfer,HeartService,ScreenOrientation,CallNumber,ClienteSalesService,Camera,DeudaService,InventarioSalesPage,ClienteService,SocialSharing,CartService,DeseoService,InventarioService,OfertaService,UsuarioService,CategoriaService,DetallePedidoService,PedidoService,HttpModule,
     StatusBar,

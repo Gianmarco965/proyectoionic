@@ -27,6 +27,10 @@ import {EditSalesClientePage} from '../pages/edit-sales-cliente-page/edit-sales-
 import { DetalleDeudaSalesPage } from '../pages/detalle-deuda-sales-page/detalle-deuda-sales-page';
 import { EstadisticaPage } from '../pages/estadistica/estadistica';
 
+import { EstadisticaMesPage } from '../pages/estadistica-mes/estadistica-mes';
+import { EstadisticaStockPage } from '../pages/estadistica-stock/estadistica-stock';
+import { EstadisticaStockRoundPage } from '../pages/estadistica-stock-round/estadistica-stock-round';
+
 @Component({
   templateUrl: 'app.html'
 })

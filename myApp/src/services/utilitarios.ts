@@ -1,6 +1,6 @@
 export class Utilitarios 
 {
-  enlace:string="192.168.1.34";
+  enlace:string="192.168.1.36";
   constructor(
     
         ) 
@@ -11,7 +11,7 @@ setObjetoEnlace(value) {
   }
 
   getObjetoEnlace() {
-    return this.enlace="192.168.1.34";
+    return this.enlace="192.168.1.36";
   }
   
 

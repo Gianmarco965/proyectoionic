@@ -13,27 +13,34 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+    <ion-list>
+        <ion-item>
+          <ion-thumbnail item-start>
+              <img src="assets/images/logosociedad.png">
+          </ion-thumbnail>
+          <h2>Pedidos por mes</h2>
   
-  <ion-card>
-    <ion-card-header>
-      Total de Pedidos por Mes
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #barCanvas id="barcanvas"></canvas>
-    </ion-card-content>
-  </ion-card>
-          <canvas #doughnutCanvas></canvas>
-     
-    
-          <ion-card>
-            <ion-card-header>
-              Estadistica de Stock Faltante
-            </ion-card-header>
-            <ion-card-content>
-              <canvas #lineCanvas></canvas>
-            </ion-card-content>
-          </ion-card>
+          <button ion-button ion-button clear item-end (click)="onClick()">Ver</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-start>
+                <img src="assets/images/logosociedad.png">
+            </ion-thumbnail>
+            <h2>Stock Faltante BARRAS</h2>
 
-          <button ion-button full (click)="download()">DESCARGAR PDF</button>
+            <button ion-button ion-button clear item-end (click)="stockFaltante()">Ver</button>
+          </ion-item>
+          <ion-item>
+              <ion-thumbnail item-start>
+                  <img src="assets/images/logosociedad.png">
+              </ion-thumbnail>
+              <h2>Stock Faltante CIRCULAR</h2>
+           
+              <button ion-button ion-button clear item-end (click)="stockFaltante2()">Ver</button>
+            </ion-item>
+
+      </ion-list>
+
+          
 </ion-content>
